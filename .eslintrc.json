@@ -23,6 +23,7 @@
     "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
     //    "react/prop-types": 0, //防止在react组件定义中缺少props验证
     // suppress errors for missing 'import React' in files
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-var-requires": 0
   }
 }
