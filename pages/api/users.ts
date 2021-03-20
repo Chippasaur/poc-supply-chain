@@ -1,5 +1,3 @@
-/** @format */
-
 import { UserPo } from '../../po/userPo'
 import { NextApiRequest, NextApiResponse } from 'next'
 

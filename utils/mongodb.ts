@@ -1,5 +1,3 @@
-/** @format */
-
 import mongoose from 'mongoose'
 import { Db, MongoClient } from 'mongodb'
 import { MONGODB_URI, MONGODB_DB } from './secrets'

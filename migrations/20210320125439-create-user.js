@@ -1,5 +1,3 @@
-/** @format */
-
 module.exports = {
   up(db, client) {
     db.createCollection('users').then(() => {

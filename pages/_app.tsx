@@ -1,5 +1,3 @@
-/** @format */
-
 import '../styles/globals.css'
 import { connectDb } from '../utils/mongodb'
 import { AppProps } from 'next/app'

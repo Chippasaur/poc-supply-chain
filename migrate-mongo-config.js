@@ -1,4 +1,4 @@
-/** @format */
+/**  */
 
 // In this file you can configure migrate-mongo
 

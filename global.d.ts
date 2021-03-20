@@ -1,5 +1,3 @@
-/** @format */
-
 // @ts-ignore
 /* eslint-disable */
 // prettier-ignore
