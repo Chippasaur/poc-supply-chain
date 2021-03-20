@@ -6,3 +6,4 @@ yarn-error.log
 next.config.js
 utils/secrets.ts
 .env.local
+coverage/*
