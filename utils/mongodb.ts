@@ -2,14 +2,13 @@
 
 import mongoose from 'mongoose'
 import { Db, MongoClient } from 'mongodb'
+import { MONGODB_URI, MONGODB_DB } from './secrets'
 
 type DBConfig = { client: MongoClient; db: Db } | null
 
-const { MONGODB_URI, MONGODB_DB } = process.env
+// const { MONGODB_URI, MONGODB_DB } = process.env
 
 const url = `${MONGODB_URI}/${MONGODB_DB}`
-
-console.log('mongodb connection url:', url)
 
 const opts = {
   useNewUrlParser: true,
