@@ -1,15 +1,18 @@
 module.exports = {
-  up(db, client) {
-    db.createCollection('users').then(() => {
-      db.insert('users', { name: 'Foo' }, function (err, doc) {
-        if (err) {
-          console.error('user error', err)
-        }
-      })
-    })
+  async up(db) {
+    try {
+      await db.createCollection('users')
+      await db.insert('users', { name: 'Foo', phone: 'Bar' })
+    } catch (error) {
+      console.error('migration error', error)
+    }
   },
 
-  down(db, client) {
-    db.dropCollection('users')
+  async down(db) {
+    try {
+      await db.dropCollection('users')
+    } catch (error) {
+      console.log('migration error', error)
+    }
   },
 }
