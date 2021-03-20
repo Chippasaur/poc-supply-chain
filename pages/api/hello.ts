@@ -1,0 +1,7 @@
+/** @format */
+
+import { NextApiRequest, NextApiResponse } from 'next'
+
+export default (req: NextApiRequest, res: NextApiResponse) => {
+  res.status(200).json({ version: process.version, mongoURI: process.env.MONGODB_URI })
+}

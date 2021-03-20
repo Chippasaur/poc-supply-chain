@@ -1,0 +1,28 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": ["plugin:react/recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier", "jest"],
+  "rules": {
+    "prettier/prettier": 1,
+    // 禁止使用 var
+    "no-var": "error",
+    // 优先使用 interface 而不是 type
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+    //    "react/prop-types": 0, //防止在react组件定义中缺少props验证
+    // suppress errors for missing 'import React' in files
+    "react/react-in-jsx-scope": "off"
+  }
+}
