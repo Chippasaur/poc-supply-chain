@@ -4,7 +4,11 @@ import { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
   connectDb().catch(err => console.log(err))
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Component {...pageProps} />
+    </>
+  )
 }
 
 export default MyApp
