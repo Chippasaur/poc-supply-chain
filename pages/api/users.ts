@@ -17,7 +17,6 @@ export const getUsers = async (req: NextApiRequest, res: NextApiResponse) => {
 }
 
 export const onError = (error: Error, req: NextApiRequest, res: NextApiResponse, next: NextApiHandler) => {
-  console.error('Internal server errorL', typeof error)
   next()
 }
 
