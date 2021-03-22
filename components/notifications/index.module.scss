@@ -1,0 +1,37 @@
+.contentContainer {
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.row {
+  padding: 20px 0;
+  margin-right: 20px;
+  border-bottom: 1px solid #c0c0c0;
+  min-width: 375px;
+  max-width: 410px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  font-size: 16px;
+  font-weight: 600;
+  color: #231f20;
+}
+
+.supplierName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #231f20;
+  margin-right: 2px;
+}
+
+.message {
+  color: #3e4545;
+  font-size: 14px;
+}
+
+.time {
+  font-size: 12px;
+  color: #231f20;
+}

@@ -1,5 +1,25 @@
 import Head from 'next/head'
+import Notifications from '../components/notifications'
+import { NotificationType } from '../components/notifications/NotificationType'
 import styles from '../styles/Home.module.css'
+
+const notifications = [
+  {
+    supplierName: 'company1',
+    type: NotificationType.INVITATION,
+    createdTime: new Date('2021-2-23 16:00:00'),
+  },
+  {
+    supplierName: 'company2',
+    type: NotificationType.INVITATION,
+    createdTime: new Date('2021-2-23 13:00:00'),
+  },
+  {
+    supplierName: 'company3',
+    type: NotificationType.INVITATION,
+    createdTime: new Date('2021-2-23 11:00:00'),
+  },
+]
 
 export default function Home() {
   return (
@@ -11,6 +31,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Greeting, Alvin</h1>
+        <Notifications notifications={notifications} />
 
         <p className={styles.description}>
           Get started by editing <code className={styles.code}>pages/index.js</code>
