@@ -1,9 +1,7 @@
 import User from '../../models/user'
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiRequest, NextApiResponse, NextApiHandler } from 'next'
 import mongoMiddleware from '../../utils/mongoMiddleware'
 import nextConnect from 'next-connect'
-
-const handler = nextConnect()
 
 export const getUsers = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -17,6 +15,13 @@ export const getUsers = async (req: NextApiRequest, res: NextApiResponse) => {
     console.error(error)
   }
 }
+
+export const onError = (error: Error, req: NextApiRequest, res: NextApiResponse, next: NextApiHandler) => {
+  console.error('Internal server errorL', typeof error)
+  next()
+}
+
+const handler = nextConnect({ onError })
 
 handler.use(mongoMiddleware)
 
