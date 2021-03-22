@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import User from '../../models/user'
-import { connectDb } from '../../utils/mongodb'
+import { connectDb } from '../../utils/mongoMiddleware'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   await connectDb()
