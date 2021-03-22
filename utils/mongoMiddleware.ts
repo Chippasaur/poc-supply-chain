@@ -1,5 +1,7 @@
-import mongoose from 'mongoose'
+import mongoose, { mongo } from 'mongoose'
+import nextConnect from 'next-connect'
 import { Db, MongoClient } from 'mongodb'
+import next, { NextApiRequest, NextApiResponse, NextApiHandler } from 'next'
 import build from 'next/dist/build'
 
 type DBConfig = { client: MongoClient; db: Db } | null
@@ -27,9 +29,9 @@ const options = {
 
 let cached: DBConfig = null
 
-const connectDb = async () => {
+const connectDb = async (req: NextApiRequest, res: NextApiResponse, next: NextApiHandler) => {
   if (cached) {
-    return
+    return next(req, res)
   }
   try {
     const dbConnection = await mongoose.connect(url, options)
@@ -39,6 +41,12 @@ const connectDb = async () => {
   } catch (error) {
     console.error(error)
   }
+
+  return next(req, res)
 }
 
-export { connectDb }
+const mongoMiddleware = nextConnect()
+
+mongoMiddleware.use(connectDb)
+
+export default mongoMiddleware

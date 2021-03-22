@@ -1,10 +1,11 @@
-import { NextApiRequest, NextApiResponse } from 'next'
 import User from '../../models/user'
-import { connectDb } from '../../utils/mongoMiddleware'
+import { NextApiRequest, NextApiResponse } from 'next'
+import mongoMiddleware from '../../utils/mongoMiddleware'
+import nextConnect from 'next-connect'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  await connectDb()
+const handler = nextConnect()
 
+export const getUsers = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     let users = await User.find({})
     if (users.length === 0) {
@@ -16,3 +17,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     console.error(error)
   }
 }
+
+handler.use(mongoMiddleware)
+
+handler.get(getUsers)
+
+export default handler

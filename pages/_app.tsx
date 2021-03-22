@@ -1,5 +1,4 @@
 import '../styles/global.scss'
-import { connectDb } from '../utils/mongoMiddleware'
 import { AppProps } from 'next/app'
 import NavigationBar from '../components/navigationBar'
 
