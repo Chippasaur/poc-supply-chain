@@ -1,6 +1,5 @@
 import mongoose from 'mongoose'
 import { Db, MongoClient } from 'mongodb'
-import { MONGODB_URI, MONGODB_DB } from './secrets'
 import build from 'next/dist/build'
 
 type DBConfig = { client: MongoClient; db: Db } | null

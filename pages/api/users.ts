@@ -1,20 +1,18 @@
-import { UserPo } from '../../po/userPo'
 import { NextApiRequest, NextApiResponse } from 'next'
+import User from '../../models/user'
+import { connectDb } from '../../utils/mongodb'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  let User = UserPo()
-
-  const user = new User({ name: 'twUser', phone: '12341259182479' })
-
-  let users = null
+  await connectDb()
 
   try {
-    await user.save()
-
-    users = await User.find({})
+    let users = await User.find({})
+    if (users.length === 0) {
+      await User.create({ name: 'Bob Chan', phone: '9023-2456' })
+      users = await User.find({})
+    }
+    res.json(users)
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
-
-  res.json(users)
 }
