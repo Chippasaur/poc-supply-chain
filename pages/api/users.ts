@@ -16,7 +16,7 @@ export const getUsers = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 }
 
-export const onError = (error: Error, req: NextApiRequest, res: NextApiResponse, next: NextApiHandler) => {
+export const onError = (error: Error, req: NextApiRequest, res: NextApiResponse, next: any) => {
   next()
 }
 
