@@ -18,7 +18,7 @@ export const buildMongoUrl = (params: MongoParams) => {
 }
 
 const url = buildMongoUrl({ host: DB_HOST, db: DB_NAME, user: DB_USER, password: DB_PASS })
-console.log(url)
+console.info('connecting to database', DB_NAME)
 
 const options = {
   useNewUrlParser: true,
@@ -37,7 +37,7 @@ const connectDb = async () => {
     const db = client.db(DB_NAME)
     cached = { client, db }
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
 }
 
