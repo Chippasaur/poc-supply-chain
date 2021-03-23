@@ -1,7 +1,16 @@
 import { createMocks } from 'node-mocks-http'
 import { getUsers } from '../../../pages/api/users'
+import { connectDb, disconnectDb } from '../../../utils/mongoMiddleware'
 
-describe.skip('users api', () => {
+describe('users api', () => {
+  beforeEach(async () => {
+    await connectDb()
+  })
+
+  afterEach(async () => {
+    await disconnectDb()
+  })
+
   test('should be able to get info of the fake user', async () => {
     const { req, res } = createMocks({ method: 'GET' })
 

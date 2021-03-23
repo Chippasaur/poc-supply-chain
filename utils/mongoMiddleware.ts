@@ -1,10 +1,10 @@
-import mongoose, { mongo } from 'mongoose'
+import mongoose, { Mongoose } from 'mongoose'
 import nextConnect from 'next-connect'
 import { Db, MongoClient } from 'mongodb'
 import next, { NextApiRequest, NextApiResponse, NextApiHandler } from 'next'
 import build from 'next/dist/build'
 
-type DBConfig = { client: MongoClient; db: Db } | null
+type DBConfig = { client: MongoClient; db: Db; dbConnection: Mongoose } | null
 
 interface MongoParams {
   host: string | undefined
@@ -29,24 +29,32 @@ const options = {
 
 let cached: DBConfig = null
 
-const connectDb = async (req: NextApiRequest, res: NextApiResponse, next: NextApiHandler) => {
-  if (cached) {
-    return next(req, res)
-  }
+export const connectDb = async () => {
   try {
     const dbConnection = await mongoose.connect(url, options)
     const client = dbConnection.connection.getClient()
     const db = client.db(DB_NAME)
-    cached = { client, db }
+    cached = { client, db, dbConnection }
   } catch (error) {
     console.error(error)
   }
-
-  return next(req, res)
 }
 
+export const disconnectDb = async () => {
+  if (cached) {
+    await cached.dbConnection.disconnect()
+  }
+}
+
+const dbMiddleware = async (req: NextApiRequest, res: NextApiResponse, next: NextApiHandler) => {
+  if (cached) {
+    return next(req, res)
+  }
+  await connectDb()
+  return next(req, res)
+}
 const mongoMiddleware = nextConnect()
 
-mongoMiddleware.use(connectDb)
+mongoMiddleware.use(dbMiddleware)
 
 export default mongoMiddleware
