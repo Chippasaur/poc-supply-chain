@@ -70,8 +70,8 @@
   },
   "lint-staged": {
     "*{.ts,.js}": [
-      "eslint --fix --ext .js,.tsx,.ts",
-      "prettier --write .",
+      "eslint --fix",
+      "prettier --write ",
       "git add"
     ]
   }
