@@ -4,7 +4,8 @@ const { Schema, Model } = mongoose
 
 const userSchema = new Schema({
   name: String,
-  phone: String,
+  email: String,
+  company_name: String,
 })
 
 let User: typeof Model

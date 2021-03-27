@@ -2,7 +2,11 @@ module.exports = {
   async up(db) {
     try {
       await db.createCollection('users')
-      await db.insert('users', { name: 'Foo', phone: 'Bar' })
+      await db.insert('users', {
+        name: 'Matt',
+        email: 'example@example.com',
+        company_name: 'Amazon, Inc',
+      })
     } catch (error) {
       console.error('migration error', error)
     }
