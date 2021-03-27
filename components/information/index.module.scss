@@ -1,0 +1,55 @@
+@import '../../styles/colors';
+@import '../../styles/variables';
+
+.container {
+  height: 322px;
+  width: 341px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $white;
+  }
+}
+
+.title {
+  height: $title-line-height;
+  font-size: 16px;
+  line-height: $title-line-height;
+  font-size: $title-weight;
+  margin-bottom: 15px;
+}
+
+.item {
+  min-height: 98px;
+  width: 330px;
+  border: 1px solid $white;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.15);
+  margin: 2px 0 12px 2px;
+  padding: 16px 14px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.date {
+  font-size: 12px;
+  font-weight: $font-weight;
+  margin-bottom: 12px;
+}
+
+.content {
+  font-size: 14px;
+  font-weight: $font-weight;
+  margin: 0;
+}
+
+.contentTitle {
+  font-size: 14px;
+  font-weight: $title-weight;
+  margin-bottom: 8px;
+}
