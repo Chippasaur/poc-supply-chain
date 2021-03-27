@@ -1,5 +1,5 @@
 export enum NotificationType {
-  ON_BOARD,
+  ON_BOARD = 0,
   SUBMIT_SURVEY,
   ACCEPT_INITATION,
   INVITATION,
