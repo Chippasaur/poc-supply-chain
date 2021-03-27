@@ -4,7 +4,7 @@ module.exports = {
       await db.createCollection('companies')
       await db.insert('companies', {
         name: 'Amazon, Inc',
-        logo_url: '/xxx/logos/amazon/png',
+        logo_url: '/companies/amazon.png',
         counterparties_num: 3518,
         subsidiaries_num: 14,
         facilities_num: 329,

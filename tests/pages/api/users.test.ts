@@ -16,9 +16,10 @@ describe('users api', () => {
 
     await getUser(req, res)
 
-    const [user] = res._getJSONData()
+    const user = res._getJSONData()
     expect(res._getStatusCode()).toBe(200)
-    expect(user.name).toEqual('Bob Chan')
-    expect(user.phone).toEqual('9023-2456')
+    expect(user.name).toEqual('Matt')
+    expect(user.phone).toEqual('example@example.com')
+    expect(user.company_name).toEqual('Amazon, Inc')
   })
 })
