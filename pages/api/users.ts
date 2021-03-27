@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse, NextApiHandler } from 'next'
 import mongoMiddleware from '../../utils/mongoMiddleware'
 import nextConnect from 'next-connect'
 
-export const getUsers = async (req: NextApiRequest, res: NextApiResponse) => {
+export const getUser = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     let users = await User.find({})
     if (users.length === 0) {
@@ -24,6 +24,6 @@ const handler = nextConnect({ onError })
 
 handler.use(mongoMiddleware)
 
-handler.get(getUsers)
+handler.get(getUser)
 
 export default handler
