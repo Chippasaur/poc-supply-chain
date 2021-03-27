@@ -1,0 +1,13 @@
+@import 'styles/colors';
+
+.item {
+  margin-right: 50px;
+}
+
+.active:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: $dark-orange;
+  display: block;
+}

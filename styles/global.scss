@@ -25,7 +25,9 @@ a {
 
 #app {
   background: $white;
+  min-width: 1175px;
   max-width: 1259px;
+  margin: 20px auto auto;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 4px 4px 0px 0px;
 }
