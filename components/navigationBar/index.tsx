@@ -4,6 +4,7 @@ import Item, { NavigationItem } from './item'
 import { useRouter } from 'next/router'
 import map from 'lodash/map'
 import Image from 'next/image'
+import Icon from '../icon'
 
 const Navigation: Array<NavigationItem> = [
   { title: 'Dashboard', url: '/' },
@@ -28,7 +29,11 @@ const NavigationBar = () => {
           <Item key={title} title={title} url={url} isActive={currentPath === url} />
         ))}
       </div>
-      <div className={styles.message}> right area</div>
+      <div className={styles.message}>
+        <Icon type={'alert'} />
+        <Icon type={'messages'} />
+        right area
+      </div>
     </div>
   )
 }

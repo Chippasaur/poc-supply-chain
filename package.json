@@ -9,7 +9,9 @@
     "test": "jest",
     "migrate": "migrate-mongo",
     "lint": "eslint . --ext .js,.ts,.tsx",
-    "test:coverage": "jest --updateSnapshot --coverage"
+    "test:coverage": "jest --updateSnapshot --coverage",
+    "generate-iconfont": "icon-font-generator icons/*.svg -o styles/iconfons"
+
   },
   "engines": {
     "node": ">=14"
