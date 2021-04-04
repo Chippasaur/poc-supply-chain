@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const { Schema } = mongoose
+const { Schema, Model } = mongoose
 
 const companySchema = new Schema({
   name: String,
@@ -10,4 +10,12 @@ const companySchema = new Schema({
   facilities_num: Number,
 })
 
-export default mongoose.model('Company', companySchema)
+let Company: typeof Model
+
+try {
+  Company = mongoose.model('Company')
+} catch (error) {
+  Company = mongoose.model('Company', companySchema)
+}
+
+export default Company
