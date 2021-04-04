@@ -1,13 +1,12 @@
+import { NextApiRequest, NextApiResponse } from 'next'
 import nextConnect from 'next-connect'
-import Company from '../../models/company'
-import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next'
 import mongoMiddleware from '../../utils/mongoMiddleware'
+import Feed from '../../models/Feed'
 
-export const getCompany = async (req: NextApiRequest, res: NextApiResponse) => {
+export const queryFeeds = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { companyName } = req.body
-    const company = await Company.findOne({ name: companyName })
-    res.json(company)
+    const feeds = await Feed.find()
+    res.json(feeds)
   } catch (error) {
     console.error(error)
   }
@@ -21,6 +20,6 @@ const handler = nextConnect({ onError })
 
 handler.use(mongoMiddleware)
 
-handler.get(getCompany)
+handler.get(queryFeeds)
 
 export default handler

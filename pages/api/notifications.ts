@@ -5,7 +5,7 @@ import mongoMiddleware from '../../utils/mongoMiddleware'
 
 export const getNotifications = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const notifications = await Notification.find({})
+    const notifications = await Notification.find({}).sort({ createTime: -1 }).limit(30)
     res.json(notifications)
   } catch (error) {
     console.log(error)

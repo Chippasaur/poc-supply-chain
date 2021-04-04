@@ -5,7 +5,7 @@ const { Schema, Model } = mongoose
 const userSchema = new Schema({
   name: String,
   email: String,
-  company_name: String,
+  companyName: String,
 })
 
 let User: typeof Model

@@ -5,7 +5,7 @@ module.exports = {
       await db.collection('users').insert({
         name: 'Matt',
         email: 'example@example.com',
-        company_name: 'Amazon, Inc',
+        companyName: 'Amazon, Inc',
       })
     } catch (error) {
       console.error('migration error', error)

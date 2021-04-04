@@ -15,7 +15,7 @@ describe('companies api', () => {
     const { req, res } = createMocks({
       method: 'GET',
       body: {
-        company_name: 'Amazon, Inc',
+        companyName: 'Amazon, Inc',
       },
     })
 
@@ -24,9 +24,9 @@ describe('companies api', () => {
     const company = res._getJSONData()
     expect(res._getStatusCode()).toBe(200)
     expect(company.name).toEqual('Amazon, Inc')
-    expect(company.logo_url).toEqual('/companies/amazon.png')
-    expect(company.counterparties_num).toEqual(3518)
-    expect(company.subsidiaries_num).toEqual(14)
-    expect(company.facilities_num).toEqual(329)
+    expect(company.logoUrl).toEqual('/companies/amazon.png')
+    expect(company.counterpartiesNum).toEqual(3518)
+    expect(company.subsidiariesNum).toEqual(14)
+    expect(company.facilitiesNum).toEqual(329)
   })
 })
