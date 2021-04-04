@@ -14,3 +14,5 @@ export function calDiffTimeFromNow(time: Date, now = new Date()) {
   const diffMinutes = moment(now).diff(time, 'm')
   return `${diffMinutes || 1}m`
 }
+
+export const dateTimeFormatter = (time: Date) => moment(time).format('D MMM YYYY')

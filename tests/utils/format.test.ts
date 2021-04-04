@@ -1,4 +1,4 @@
-import { calDiffTimeFromNow } from '../../utils/format'
+import { calDiffTimeFromNow, dateTimeFormatter } from '../../utils/format'
 
 describe('test format utils', () => {
   describe('test calDiffTimeFromNow', () => {
@@ -16,6 +16,16 @@ describe('test format utils', () => {
 
     it('should get 1m when diffTime less than 1,', () => {
       expect(calDiffTimeFromNow(new Date('2021-2-23 12:00:00'), new Date('2021-2-23 12:00:50'))).toBe('1m')
+    })
+  })
+
+  describe('test dateTimeFormatter', () => {
+    it('should get correct date time string when date parse right', () => {
+      expect(dateTimeFormatter(new Date('2020-11-18 16:00:00'))).toBe('18 Nov 2020')
+    })
+
+    it('should get invalid date string when date parse wrong', () => {
+      expect(dateTimeFormatter(new Date('2020-10-39 16:00:00'))).toBe('Invalid date')
     })
   })
 })
