@@ -13,7 +13,11 @@ const newSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  lastUpdatedAt: Date,
+  lastUpdatedAt: {
+    type: Date,
+    default: Date.now,
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

@@ -7,7 +7,7 @@ export const getUser = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     let users = await User.find({})
     if (users.length === 0) {
-      await User.create({ name: 'Bob Chan', phone: '9023-2456' })
+      await User.create({ name: 'Matt', phone: '9023-2456' })
       users = await User.find({})
     }
     res.json(users)

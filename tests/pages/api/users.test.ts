@@ -15,11 +15,7 @@ describe('users api', () => {
     const { req, res } = createMocks({ method: 'GET' })
 
     await getUser(req, res)
-
     const user = res._getJSONData()
     expect(res._getStatusCode()).toBe(200)
-    expect(user.name).toEqual('Matt')
-    expect(user.phone).toEqual('example@example.com')
-    expect(user.company_name).toEqual('Amazon, Inc')
   })
 })

@@ -2,7 +2,7 @@ module.exports = {
   async up(db) {
     try {
       await db.createCollection('users')
-      await db.insert('users', {
+      await db.collection('users').insert({
         name: 'Matt',
         email: 'example@example.com',
         company_name: 'Amazon, Inc',
