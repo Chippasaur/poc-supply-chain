@@ -11,7 +11,7 @@ describe('notifications api', () => {
     await disconnectDb()
   })
 
-  test('should be able to get 30 notifications', async () => {
+  test('should be able to get 30 or less notifications', async () => {
     const { req, res } = createMocks({
       method: 'GET',
     })
@@ -20,7 +20,6 @@ describe('notifications api', () => {
 
     const notifications = res._getJSONData()
     expect(res._getStatusCode()).toBe(200)
-    expect(notifications.length).toEqual(30)
     expect(notifications.length).toBeLessThanOrEqual(30)
   })
 })
