@@ -7,13 +7,7 @@ const notificationSchema = new Schema({
   supplierName: String,
   type: {
     type: String,
-    enum: [
-      NotificationType.ON_BOARD,
-      NotificationType.SUBMIT_SURVEY,
-      NotificationType.SEND_MESSAGE,
-      NotificationType.INVITATION,
-      NotificationType.ACCEPT_INITATION,
-    ],
+    enum: Object.values(NotificationType),
   },
   createTime: { type: Date, default: Date.now },
 })

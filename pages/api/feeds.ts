@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import nextConnect from 'next-connect'
 import mongoMiddleware from '../../utils/mongoMiddleware'
-import Feed from '../../models/Feed'
+import Feed from '../../models/feed'
 
 export const queryFeeds = async (req: NextApiRequest, res: NextApiResponse) => {
   try {

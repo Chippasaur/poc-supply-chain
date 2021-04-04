@@ -21,5 +21,6 @@ describe('notifications api', () => {
     const notifications = res._getJSONData()
     expect(res._getStatusCode()).toBe(200)
     expect(notifications.length).toEqual(30)
+    expect(notifications.length).toBeLessThanOrEqual(30)
   })
 })
