@@ -4,7 +4,7 @@ import { AlertLevel } from './AlertLevel'
 
 interface AlertProps {
   title: string
-  contents: Array<Alert>
+  alerts: Array<Alert>
 }
 
 interface Alert {
@@ -17,7 +17,7 @@ interface Alert {
 }
 
 const Alert = (props: AlertProps) => {
-  const { title, contents } = props
+  const { title, alerts } = props
 
   const getRiskLevelStyle = (riskLevel: string) => {
     if (riskLevel === AlertLevel.HIGH) {
@@ -37,20 +37,21 @@ const Alert = (props: AlertProps) => {
     <div className={styles.wrapper}>
       <div className={styles.title}>{title}</div>
       <div className={styles.container}>
-        {contents.map(content => {
+        {alerts.map(alert => {
           return (
             <div
-              key={content.id}
+              key={alert.id}
               className={cls(styles.item, {
-                [styles.highRiskBackground]: content.riskLevel === AlertLevel.HIGH,
-                [styles.background]: content.riskLevel !== AlertLevel.HIGH,
+                [styles.highRiskBackground]: alert.riskLevel === AlertLevel.HIGH,
+                [styles.background]: alert.riskLevel !== AlertLevel.HIGH,
               })}>
+              <span className={styles.date}>{alert.date}</span>
               <div className={styles.riskLevel}>
                 <span>Level: </span>
-                <span className={getRiskLevelStyle(content.riskLevel)}>{content.riskLevel}</span>
+                <span className={getRiskLevelStyle(alert.riskLevel)}>{alert.riskLevel}</span>
               </div>
-              <span className={styles.content} dangerouslySetInnerHTML={{ __html: content.content }} />
-              <p className={styles.source}>Source: {content.source}</p>
+              <span className={styles.content} dangerouslySetInnerHTML={{ __html: alert.content }} />
+              <p className={styles.source}>Source: {alert.source}</p>
               <span className={styles.exposure}>{exposureText}</span>
             </div>
           )
@@ -59,3 +60,5 @@ const Alert = (props: AlertProps) => {
     </div>
   )
 }
+
+export default Alert

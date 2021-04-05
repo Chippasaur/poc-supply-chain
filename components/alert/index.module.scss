@@ -7,9 +7,8 @@
 }
 
 .title {
-  height: 20px;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
   font-weight: $title-weight;
   margin-bottom: 15px;
 }
@@ -38,7 +37,7 @@
   min-height: 98px;
   width: 330px;
   box-sizing: border-box;
-  box-shadow: 9 1px 2px 1px rbga(0, 0, 0, 0.15);
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.15);
   margin: 2px 0 12px 2px;
   padding: 16px 14px 16px 18px;
   display: flex;
@@ -75,7 +74,6 @@
   margin: 0;
   font-size: 14px;
   font-weight: $title-weight;
-  margin-bottom: 8px;
   line-height: 18px;
   width: fit-content;
 }
@@ -85,6 +83,7 @@
   font-size: 12px;
   font-weight: $font-weight;
   line-height: 16px;
+  margin: 8px 0 12px 0;
 }
 
 .exposure {

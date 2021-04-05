@@ -6,6 +6,8 @@ import Button from '@material-ui/core/Button'
 import Avatar from '@material-ui/core/Avatar'
 import useSWR from 'swr'
 import ActivityNews from '../components/activityNews'
+import Alert from '../components/alert'
+import { alerts } from '../components/alert/fakeAlerts'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -46,6 +48,7 @@ export default function Home() {
           </Button>
         </div>
         <Notifications notifications={notifications} />
+        <Alert alerts={alerts} title={'Alerts'} />
         <ActivityNews title="Activity" contents={activities} />
         <ActivityNews title="Recent news" contents={news} />
       </main>
