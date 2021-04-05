@@ -1,7 +1,7 @@
 module.exports = {
   async up(db, client) {
     try {
-      await db.createCollection('feeds', {
+      await db.createCollection('activities', {
         validator: {
           bsonType: 'object',
           required: ['companyId', 'title', 'content', 'lastUpdatedAt', 'createdAt'],
@@ -32,7 +32,7 @@ module.exports = {
 
   async down(db, client) {
     try {
-      await db.dropCollection('feeds')
+      await db.dropCollection('activities')
     } catch (error) {
       console.error('migration error: ', error)
     }

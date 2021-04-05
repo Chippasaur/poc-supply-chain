@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const { Schema } = mongoose
 
-const FeedSchema = new Schema({
+const ActivitySchema = new Schema({
   companyId: {
     type: String,
     required: true,
@@ -23,6 +23,6 @@ const FeedSchema = new Schema({
   },
 })
 
-const model = mongoose.model('Feed', FeedSchema)
+const model = mongoose.model('Activity', ActivitySchema)
 
 export default model
