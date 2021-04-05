@@ -6,7 +6,7 @@ import cn from 'classnames'
 interface Notification {
   supplierName: string
   type: NotificationType
-  createTime: Date
+  createdAt: Date
 }
 
 interface NotificationProps {
@@ -34,7 +34,7 @@ export default function Notifications(props: NotificationProps) {
               <span className={styles.supplierName}>{notification.supplierName}</span>
               <span className={styles.message}>{messageMap[notification.type]}</span>
             </div>
-            <span className={styles.time}>{calDiffTimeFromNow(notification.createTime)}</span>
+            <span className={styles.time}>{calDiffTimeFromNow(notification.createdAt)}</span>
           </div>
         ))}
       </div>
