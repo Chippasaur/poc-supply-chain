@@ -1,0 +1,91 @@
+@import '../../styles/colors';
+@import '../../styles/variables';
+
+.wrapper {
+  width: 341px;
+  height: 361px;
+}
+
+.title {
+  height: 20px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: $title-weight;
+  margin-bottom: 15px;
+}
+
+.container {
+  height: 322px;
+  width: 341px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background: $bright-gray;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $white;
+  }
+}
+
+.item {
+  position: relative;
+  min-height: 98px;
+  width: 330px;
+  border: 1px solid $white;
+  box-sizing: border-box;
+  box-shadow: 9 1px 2px 1px rbga(0, 0, 0, 0.15);
+  margin: 2px 0 12px 2px;
+  padding: 16px 14px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.date {
+  font-size: 12px;
+  font-weight: $font-weight;
+  line-height: 16px;
+  margin-bottom: 12px;
+  max-width: 100px;
+}
+
+.riskLevel {
+  font-size: 12px;
+  line-height: 16px;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+}
+
+.content {
+  font-size: 14px;
+  font-weight: $font-weight;
+  margin: 0;
+}
+
+.contentTitle {
+  font-size: 14px;
+  font-weight: $title-weight;
+  margin-bottom: 8px;
+}
+
+.source {
+}
+
+.high {
+  color: #d0021b;
+}
+
+.medium {
+  color: #ffb700;
+}
+
+.low {
+  color: $base-grey;
+}
