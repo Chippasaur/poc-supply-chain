@@ -20,12 +20,12 @@ const AlterSchema = new Schema({
     enum: ['LOW', 'MEDIUM', 'HIGH'],
     required: true,
   },
-  createTime: {
+  createAt: {
     type: Date,
     default: Date.now,
     required: true,
   },
-  lastUpdateTime: Date,
+  lastUpdateAt: Date,
 })
 
 let Alert: typeof Model
