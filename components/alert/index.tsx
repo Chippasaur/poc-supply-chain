@@ -30,6 +30,8 @@ const Alert = (props: AlertProps) => {
     return styles.low
   }
 
+  const exposureText = 'See exposure >'
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>{title}</div>
@@ -41,8 +43,9 @@ const Alert = (props: AlertProps) => {
                 <span>Level: </span>
                 <span className={getRiskLevelStyle(content.riskLevel)}>{content.riskLevel}</span>
               </div>
-              <p className={styles.content}>{content.content}</p>
-              <p className={styles.source}>{content.source}</p>
+              <span className={styles.content} dangerouslySetInnerHTML={{ __html: content.content }} />
+              <p className={styles.source}>Source: {content.source}</p>
+              <span className={styles.exposure}>{exposureText}</span>
             </div>
           )
         })}

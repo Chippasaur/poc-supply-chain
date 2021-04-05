@@ -67,15 +67,38 @@
   font-size: 14px;
   font-weight: $font-weight;
   margin: 0;
+  line-height: 18px;
+  max-height: 54px;
+  overflow: hidden;
 }
 
-.contentTitle {
+.contentSupplierName {
+  margin: 0;
   font-size: 14px;
   font-weight: $title-weight;
   margin-bottom: 8px;
+  line-height: 18px;
+  width: fit-content;
 }
 
 .source {
+  color: $base-black;
+  font-size: 12px;
+  font-weight: $font-weight;
+  line-height: 16px;
+}
+
+.exposure {
+  margin-bottom: 2px;
+  line-height: 22.38px;
+  font-size: 16px;
+  color: #0f81ac;
+  font-weight: 500;
+}
+
+.exposure:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .high {
