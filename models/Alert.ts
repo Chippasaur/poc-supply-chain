@@ -20,7 +20,7 @@ const AlterSchema = new Schema({
     enum: ['LOW', 'MEDIUM', 'HIGH'],
     required: true,
   },
-  createAt: {
+  createdAt: {
     type: Date,
     default: Date.now,
     required: true,
