@@ -23,6 +23,6 @@ const ActivitySchema = new Schema({
   },
 })
 
-const model = mongoose.model('Activity', ActivitySchema)
+const model = mongoose.models.Activity || mongoose.model('Activity', ActivitySchema)
 
 export default model

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const newSchema = new mongoose.Schema({
+const newsSchema = new mongoose.Schema({
   companyId: {
     type: String,
     required: true,
@@ -25,6 +25,6 @@ const newSchema = new mongoose.Schema({
   },
 })
 
-const model = mongoose.model('News', newSchema)
+const model = mongoose.models.News || mongoose.model('News', newsSchema)
 
 export default model
