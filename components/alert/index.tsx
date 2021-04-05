@@ -1,3 +1,4 @@
+import cls from 'classnames'
 import styles from './index.module.scss'
 import { AlertLevel } from './AlertLevel'
 
@@ -38,7 +39,12 @@ const Alert = (props: AlertProps) => {
       <div className={styles.container}>
         {contents.map(content => {
           return (
-            <div key={content.id} className={styles.item}>
+            <div
+              key={content.id}
+              className={cls(styles.item, {
+                [styles.highRiskBackground]: content.riskLevel === AlertLevel.HIGH,
+                [styles.background]: content.riskLevel !== AlertLevel.HIGH,
+              })}>
               <div className={styles.riskLevel}>
                 <span>Level: </span>
                 <span className={getRiskLevelStyle(content.riskLevel)}>{content.riskLevel}</span>

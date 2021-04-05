@@ -37,7 +37,6 @@
   position: relative;
   min-height: 98px;
   width: 330px;
-  border: 1px solid $white;
   box-sizing: border-box;
   box-shadow: 9 1px 2px 1px rbga(0, 0, 0, 0.15);
   margin: 2px 0 12px 2px;
@@ -111,4 +110,14 @@
 
 .low {
   color: $base-grey;
+}
+
+.highRiskBackground {
+  background: #fffae8;
+  border: 1px solid #ffb700;
+}
+
+.background {
+  background: $white;
+  border: 1px solid $white;
 }
