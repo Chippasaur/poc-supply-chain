@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import map from 'lodash/map'
 import Image from 'next/image'
 import Icon from '../icon'
+import Avatar from '@material-ui/core/Avatar'
 
 const Navigation: Array<NavigationItem> = [
   { title: 'Dashboard', url: '/' },
@@ -19,7 +20,6 @@ const Navigation: Array<NavigationItem> = [
 
 const NavigationBar = () => {
   const router = useRouter()
-  console.log(router)
   const currentPath = router.pathname
   return (
     <div className={styles.navigationBar}>
@@ -30,9 +30,15 @@ const NavigationBar = () => {
         ))}
       </div>
       <div className={styles.message}>
-        <Icon type={'alert'} />
-        <Icon type={'messages'} />
-        right area
+        <div className={styles.icons}>
+          <Icon type={'alert'} size={20} />
+          <Icon type={'messages'} />
+          <Icon type={'search'} />
+        </div>
+        <Avatar
+          src={'httpsL//upload.wikimedia.org/wikipedia/commons/c/cc/Amazon_Alexa_App_Logo.png'}
+          className={styles.avatar}
+        />
       </div>
     </div>
   )

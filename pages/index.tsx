@@ -16,6 +16,7 @@ export default function Home() {
   const { data: notifications = [] } = useSWR('/api/notifications', fetcher)
   const { data: activities = [] } = useSWR('/api/activities', fetcher)
   const { data: news = [] } = useSWR('/api/news', fetcher)
+  // const { name } = useSWR('/api/users', fetcher)
 
   const { name, company } = user
   const { avatar } = companyInfo
@@ -31,7 +32,7 @@ export default function Home() {
         <div className={styles.header}>
           <div>
             <div className={styles.companyInfo}>
-              <Avatar alt="Remy Sharp" src={avatar} />
+              <Avatar alt="Remy Sharp" src={avatar} className={styles.avatar} />
               <p>{company}</p>
             </div>
           </div>

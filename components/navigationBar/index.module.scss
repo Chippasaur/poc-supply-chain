@@ -1,5 +1,6 @@
 @import '../../styles/colors';
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 .navigationBar {
   height: $navigation-height;
@@ -22,8 +23,32 @@
   }
   .message {
     flex: 1;
-    display: flex;
-    justify-content: flex-end;
+    @include flex-end-center;
+
+    i {
+      margin-left: 30px;
+    }
+
+    .avatar {
+      margin: 0 30px;
+      width: 36px;
+      height: 36px;
+    }
+
+    .icons {
+      @include flex-end-center;
+    }
+
+    @media screen and (min-width: 1260px) {
+      i {
+        margin-left: 45px;
+      }
+    }
+    @media screen and (min-width: 1600px) {
+      i {
+        margin-left: 45px;
+      }
+    }
   }
 }
 
