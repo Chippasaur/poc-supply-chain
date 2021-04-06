@@ -16,7 +16,7 @@ interface NotificationProps {
 const messageMap = {
   [NotificationType.ON_BOARD]: 'has onboarded',
   [NotificationType.SUBMIT_SURVEY]: 'has submitted a survey',
-  [NotificationType.ACCEPT_INITATION]: 'accepted your invitation',
+  [NotificationType.ACCEPT_INITATION]: 'has accepted your invitation',
   [NotificationType.INVITATION]: 'has invited your to join their network',
   [NotificationType.SEND_MESSAGE]: 'has sent you a message',
 }
