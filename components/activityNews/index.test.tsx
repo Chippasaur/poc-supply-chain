@@ -1,4 +1,5 @@
 import { render } from 'enzyme'
+import { ActivityNewsType } from './ActivityNewsType'
 import ActivityNews from './index'
 
 describe('<ActivityNews/>', () => {
@@ -22,7 +23,9 @@ describe('<ActivityNews/>', () => {
   ]
 
   it('renders 3 activityNews', () => {
-    const component = render(<ActivityNews title="Activity feed" contents={contents} />)
+    const component = render(
+      <ActivityNews title="Activity feed" type={ActivityNewsType.ACTIVITY_FEED} contents={contents} />,
+    )
     expect(component.find('.date')).toHaveLength(3)
   })
 })

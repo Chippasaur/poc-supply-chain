@@ -8,6 +8,7 @@ import useSWR from 'swr'
 import ActivityNews from '../components/activityNews'
 import Alert from '../components/alert'
 import { alerts } from '../components/alert/fakeAlerts'
+import { ActivityNewsType } from '../components/activityNews/ActivityNewsType'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -48,9 +49,8 @@ export default function Home() {
           </Button>
         </div>
         <Notifications notifications={notifications} />
-        <Alert alerts={alerts} title={'Alerts'} />
-        <ActivityNews title="Activity" contents={activities} />
-        <ActivityNews title="Recent news" contents={news} />
+        <ActivityNews title="Activity" type={ActivityNewsType.ACTIVITY_FEED} contents={activities} />
+        <ActivityNews title="Recent news" type={ActivityNewsType.RECENT_NEWS} contents={news} />
       </main>
     </div>
   )
