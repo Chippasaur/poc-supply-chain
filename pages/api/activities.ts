@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import nextConnect from 'next-connect'
 import mongoMiddleware from '../../utils/mongoMiddleware'
-import Activity from '../../models/Activity'
+import Activity from '../../models/activity'
 
 export const queryActivities = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
