@@ -5,10 +5,11 @@ import News from '../../models/news'
 
 export const queryFeeds = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const news = await News.find({})
+    const news = await News.find({}).sort({ createdAt: -1 }).limit(30)
     res.json(news)
   } catch (error) {
     console.error(error)
+    res.json([])
   }
 }
 

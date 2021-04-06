@@ -5,10 +5,11 @@ import Activity from '../../models/Activity'
 
 export const queryActivities = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const activities = await Activity.find()
+    const activities = await Activity.find().sort({ createdAt: -1 }).limit(30)
     res.json(activities)
   } catch (error) {
     console.error(error)
+    res.json([])
   }
 }
 
