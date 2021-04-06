@@ -6,9 +6,10 @@ import Button from '@material-ui/core/Button'
 import Avatar from '@material-ui/core/Avatar'
 import useSWR from 'swr'
 import ActivityNews from '../components/activityNews'
-import Alert from '../components/alert'
 import { alerts } from '../components/alert/fakeAlerts'
 import { ActivityNewsType } from '../components/activityNews/ActivityNewsType'
+import CompanyOverview from '../components/home/companyOverview'
+import Alert from '../components/alert'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -19,10 +20,8 @@ export default function Home() {
   const { data: notifications = [] } = useSWR('/api/notifications', fetcher)
   const { data: activities = [] } = useSWR('/api/activities', fetcher)
   const { data: news = [] } = useSWR('/api/news', fetcher)
-  // const { name } = useSWR('/api/users', fetcher)
-
-  const { name, company } = user
-  const { avatar } = companyInfo
+  const { data: { name, companyName } = {} } = useSWR('/api/users', fetcher)
+  const { data: { logoUrl, ...datas } = {} } = useSWR(`/api/companies?companyName=${companyName}`, fetcher)
 
   return (
     <div className={styles.container}>
@@ -31,13 +30,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <div className={styles.header}>
-          <div>
-            <div className={styles.companyInfo}>
-              <Avatar alt="Remy Sharp" src={avatar} className={styles.avatar} />
-              <p>{company}</p>
-            </div>
+      <div className={styles.header}>
+        <div>
+          <h1>Welcome back, {name}</h1>
+          <div className={styles.companyInfo}>
+            <Avatar alt="Remy Sharp" src={logoUrl} className={styles.avatar} />
+            <p>{companyName}</p>
           </div>
         </div>
         <div>
@@ -48,9 +46,17 @@ export default function Home() {
             Invite counterparty
           </Button>
         </div>
-        <Notifications notifications={notifications} />
-        <ActivityNews title="Activity" type={ActivityNewsType.ACTIVITY_FEED} contents={activities} />
-        <ActivityNews title="Recent news" type={ActivityNewsType.RECENT_NEWS} contents={news} />
+      </div>
+      <main className={styles.main}>
+        <div>
+          <CompanyOverview {...datas} />
+          <Notifications notifications={notifications} />
+        </div>
+        <Alert alerts={alerts} title={`Alerts`} />
+        <div>
+          <ActivityNews title="Activity" type={ActivityNewsType.ACTIVITY_FEED} contents={activities} />
+          <ActivityNews title="Recent news" type={ActivityNewsType.RECENT_NEWS} contents={news} />
+        </div>
       </main>
     </div>
   )

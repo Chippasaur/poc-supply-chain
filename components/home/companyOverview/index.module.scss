@@ -1,0 +1,20 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.companyOverview {
+  @include flex-between-center;
+
+  p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 16px;
+    color: $black;
+  }
+
+  .label {
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 40px;
+    color: $blue;
+  }
+}

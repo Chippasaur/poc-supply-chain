@@ -14,7 +14,7 @@ describe('companies api', () => {
   test('should be able to get company info by company name', async () => {
     const { req, res } = createMocks({
       method: 'GET',
-      body: {
+      query: {
         companyName: 'Amazon, Inc',
       },
     })

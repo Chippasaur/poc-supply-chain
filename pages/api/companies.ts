@@ -5,7 +5,7 @@ import mongoMiddleware from '../../utils/mongoMiddleware'
 
 export const getCompany = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { companyName } = req.body
+    const { companyName } = req.query
     const company = await Company.findOne({ name: companyName })
     res.json(company)
   } catch (error) {
