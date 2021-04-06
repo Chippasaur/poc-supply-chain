@@ -8,11 +8,4 @@ const userSchema = new Schema({
   companyName: String,
 })
 
-let User: typeof Model
-try {
-  User = mongoose.model('User')
-} catch (error) {
-  User = mongoose.model('User', userSchema)
-}
-
-export default User
+export default mongoose.models.User || mongoose.model('User', userSchema)

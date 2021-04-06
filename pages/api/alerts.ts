@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import nextConnect from 'next-connect'
 import mongoMiddleware from '../../utils/mongoMiddleware'
-import Alert from '../../models/Alert'
+import Alert from '../../models/alert'
 
 export const queryAlerts = async (req: NextApiRequest, res: NextApiResponse) => {
   try {

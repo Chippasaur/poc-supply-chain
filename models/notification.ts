@@ -18,10 +18,4 @@ const notificationSchema = new Schema({
 
 let Notification: typeof Model
 
-try {
-  Notification = mongoose.model('Notification', notificationSchema)
-} catch (error) {
-  Notification = mongoose.model('Notification')
-}
-
-export default Notification
+export default mongoose.models.Notification || mongoose.model('Notification', notificationSchema)

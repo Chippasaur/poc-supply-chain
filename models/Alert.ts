@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const { Schema, Model } = mongoose
 
-const AlterSchema = new Schema({
+const AlertSchema = new Schema({
   supplierName: {
     type: String,
     required: true,
@@ -25,15 +25,7 @@ const AlterSchema = new Schema({
     default: Date.now,
     required: true,
   },
-  lastUpdateAt: Date,
+  lastUpdatedAt: Date,
 })
 
-let Alert: typeof Model
-
-try {
-  Alert = mongoose.model('Alerts', AlterSchema)
-} catch (error) {
-  Alert = mongoose.model('Alerts')
-}
-
-export default Alert
+export default mongoose.models.Alert || mongoose.model('Alert', AlertSchema)

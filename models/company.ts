@@ -12,10 +12,4 @@ const companySchema = new Schema({
 
 let Company: typeof Model
 
-try {
-  Company = mongoose.model('Company')
-} catch (error) {
-  Company = mongoose.model('Company', companySchema)
-}
-
-export default Company
+export default mongoose.models.Company || mongoose.model('Company', companySchema)
