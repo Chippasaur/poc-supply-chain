@@ -27,6 +27,17 @@
   color: $base-black;
 }
 
+.content {
+  max-width: 310px;
+  max-height: 40px;
+  text-overflow: ellipsis;
+  max-lines: 2;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 .supplierName {
   font-size: 14px;
   font-weight: 600;

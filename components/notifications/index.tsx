@@ -30,7 +30,7 @@ export default function Notifications(props: NotificationProps) {
       <div className={styles.contentContainer}>
         {notifications.map((notification, index) => (
           <div key={notification.supplierName + index} className={styles.row}>
-            <div>
+            <div className={styles.content}>
               <span className={styles.supplierName}>{notification.supplierName}</span>
               <span className={styles.message}>{messageMap[notification.type]}</span>
             </div>
