@@ -5,7 +5,18 @@ import News from '../../models/news'
 
 export const queryFeeds = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const news = await News.find({}).sort({ createdAt: -1 }).limit(30)
+    const newsDocs = await News.find({}).sort({ createdAt: -1 }).limit(30)
+
+    const news = newsDocs.map(newsDoc => {
+      return {
+        id: newsDoc._id,
+        companyId: newsDoc.companyId,
+        title: newsDoc.title,
+        content: newsDoc.content,
+        lastUpdatedAt: newsDoc.lastUpdatedAt,
+        createdAt: newsDoc.createdAt,
+      }
+    })
     res.json(news)
   } catch (error) {
     console.error(error)
