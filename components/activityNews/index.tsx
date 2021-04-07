@@ -17,6 +17,8 @@ interface Content {
 }
 
 const ActivityNews = (props: ActivityNewsProps) => {
+  const twoLinesCharNum = 77
+  const threeLinesCharNum = 112
   const { title, type, contents } = props
 
   const renderHint = () => {
@@ -26,6 +28,22 @@ const ActivityNews = (props: ActivityNewsProps) => {
     if (type === ActivityNewsType.RECENT_NEWS) {
       return <span className={styles.hint}>No activities</span>
     }
+  }
+
+  const sliceContent = (content: string) => {
+    let maxLength = 0
+
+    if (type === ActivityNewsType.ACTIVITY_FEED) {
+      maxLength = twoLinesCharNum
+    }
+
+    if (type === ActivityNewsType.RECENT_NEWS) {
+      maxLength = threeLinesCharNum
+    }
+
+    const newContent = content.length > maxLength ? `${content.slice(0, maxLength)}...` : content
+
+    return { __html: newContent }
   }
 
   return (
@@ -39,9 +57,7 @@ const ActivityNews = (props: ActivityNewsProps) => {
                 <div key={content.id} className={styles.item}>
                   <span className={styles.date}>{dateTimeFormatter(content.createdTime)}</span>
                   {content.title && <span className={styles.contentTitle}> {content.title}</span>}
-                  <p className={styles.content}>
-                    {content.content.length ? `${content.content.slice(0, 120)}...` : content.content}
-                  </p>
+                  <span className={styles.content} dangerouslySetInnerHTML={sliceContent(content.content)} />
                 </div>
               )
             })}
