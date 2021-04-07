@@ -17,8 +17,8 @@ interface Content {
 }
 
 const ActivityNews = (props: ActivityNewsProps) => {
-  const twoLinesCharNum = 77
-  const threeLinesCharNum = 112
+  const twoLinesCharNum = 95
+  const threeLinesCharNum = 125
   const { title, type, contents } = props
 
   const renderHint = () => {
