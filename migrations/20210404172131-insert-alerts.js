@@ -5,7 +5,7 @@ module.exports = {
         supplierName: 'Xinjiang Cotton',
         source: 'sourcingjournal.com',
         content: 'Xinjiang Cotton Faces Sweeping New Western Sanctions',
-        level: 'HIGH',
+        level: 'High',
         createdAt: new Date('2021-01-13'),
         lastUpdateAt: new Date('2021-01-13'),
       })
@@ -14,7 +14,7 @@ module.exports = {
         supplierName: 'Merces Apparel Co., LTD',
         source: 'Euler Hermes',
         content: 'Merces Apparel Co., LTD has had a credit issue: Credit report has changed from Amber to Red',
-        level: 'LOW',
+        level: 'Low',
         createdAt: new Date('2021-01-08'),
         lastUpdateAt: new Date('2021-01-08'),
       })
@@ -23,7 +23,7 @@ module.exports = {
         supplierName: 'Grand Group',
         source: 'D&B',
         content: 'Grand Group Standard industrial Classification (SIC) rating has dropped below requirements',
-        level: 'MEDIUM',
+        level: 'Medium',
         createdAt: new Date('2020-12-28'),
         lastUpdateAt: new Date('2020-12-28'),
       })
@@ -32,7 +32,7 @@ module.exports = {
         supplierName: 'Fast Sourcing Group',
         source: 'Bloomberg',
         content: 'Fast Sourcing Group Shipment failed quality assessment',
-        level: 'MEDIUM',
+        level: 'Medium',
         createdAt: new Date('2020-12-21'),
         lastUpdateAt: new Date('2020-12-21'),
       })

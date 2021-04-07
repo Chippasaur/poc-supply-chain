@@ -8,9 +8,9 @@ interface AlertProps {
 }
 
 interface Alert {
-  id: string
+  _id: string
   date: string
-  riskLevel: string
+  level: string
   supplierName: string
   content: string
   source: string
@@ -19,12 +19,12 @@ interface Alert {
 const Alert = (props: AlertProps) => {
   const { title, alerts } = props
 
-  const getRiskLevelStyle = (riskLevel: string) => {
-    if (riskLevel === AlertLevel.HIGH) {
+  const getRiskLevelStyle = (level: string) => {
+    if (level === AlertLevel.HIGH) {
       return styles.high
     }
 
-    if (riskLevel === AlertLevel.MEDIUM) {
+    if (level === AlertLevel.MEDIUM) {
       return styles.medium
     }
 
@@ -40,15 +40,15 @@ const Alert = (props: AlertProps) => {
         {alerts.map(alert => {
           return (
             <div
-              key={alert.id}
+              key={alert._id}
               className={cls(styles.item, {
-                [styles.highRiskBackground]: alert.riskLevel === AlertLevel.HIGH,
-                [styles.background]: alert.riskLevel !== AlertLevel.HIGH,
+                [styles.highRiskBackground]: alert.level === AlertLevel.HIGH,
+                [styles.background]: alert.level !== AlertLevel.HIGH,
               })}>
               <span className={styles.date}>{alert.date}</span>
-              <div className={styles.riskLevel}>
+              <div className={styles.level}>
                 <span>Level: </span>
-                <span className={getRiskLevelStyle(alert.riskLevel)}>{alert.riskLevel}</span>
+                <span className={getRiskLevelStyle(alert.level)}>{alert.level}</span>
               </div>
               <span className={styles.content} dangerouslySetInnerHTML={{ __html: alert.content }} />
               <p className={styles.source}>Source: {alert.source}</p>

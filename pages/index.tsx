@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button'
 import Avatar from '@material-ui/core/Avatar'
 import useSWR from 'swr'
 import ActivityNews from '../components/activityNews'
-import { alerts } from '../components/alert/fakeAlerts'
 import { ActivityNewsType } from '../components/activityNews/ActivityNewsType'
 import CompanyOverview from '../components/home/companyOverview'
 import Alert from '../components/alert'
@@ -20,6 +19,7 @@ export default function Home() {
   const { data: notifications = [] } = useSWR('/api/notifications', fetcher)
   const { data: activities = [] } = useSWR('/api/activities', fetcher)
   const { data: news = [] } = useSWR('/api/news', fetcher)
+  const { data: alerts = [] } = useSWR('/api/alerts', fetcher)
 
   const { name, companyName, logoUrl, ...datas } = useCompanyData()
 

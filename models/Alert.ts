@@ -17,7 +17,7 @@ const AlertSchema = new Schema({
   },
   level: {
     type: String,
-    enum: ['LOW', 'MEDIUM', 'HIGH'],
+    enum: ['Low', 'Medium', 'High'],
     required: true,
   },
   createdAt: {
