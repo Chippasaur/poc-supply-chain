@@ -2,7 +2,10 @@
 @import 'styles/mixins';
 
 .companyOverview {
-  @include flex-between-center;
+  .datas {
+    @include flex-between-center;
+    margin: 30px 20px;
+  }
 
   .dataItem {
     @include flex-center-column;

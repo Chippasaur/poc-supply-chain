@@ -35,8 +35,8 @@ const NavigationBar = () => {
       <div className={styles.message}>
         <div className={styles.icons}>
           <Icon type={'alert'} size={20} />
-          <Icon type={'messages'} />
-          <Icon type={'search'} />
+          <Icon type={'messages'} size={20} />
+          <Icon type={'search'} size={20} />
         </div>
         <Avatar src={logoUrl} className={styles.avatar} />
       </div>
