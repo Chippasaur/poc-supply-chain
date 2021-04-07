@@ -4,6 +4,10 @@
 .companyOverview {
   @include flex-between-center;
 
+  .dataItem {
+    @include flex-center-column;
+  }
+
   p {
     margin: 0;
     font-size: 12px;

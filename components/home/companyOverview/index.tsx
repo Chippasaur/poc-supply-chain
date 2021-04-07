@@ -10,15 +10,15 @@ interface Data {
 const companyOverview = ({ counterpartiesNum, subsidiariesNum, facilitiesNum }: Data) => {
   return (
     <div className={styles.companyOverview}>
-      <div>
+      <div className={styles.dataItem}>
         <p className={styles.label}>{counterpartiesNum}</p>
         <p>Counterparties</p>
       </div>
-      <div>
+      <div className={styles.dataItem}>
         <p className={styles.label}>{subsidiariesNum}</p>
         <p>Subsidiaries</p>
       </div>
-      <div>
+      <div className={styles.dataItem}>
         <p className={styles.label}>{facilitiesNum}</p>
         <p>Facilities</p>
       </div>
