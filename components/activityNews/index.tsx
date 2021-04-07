@@ -11,7 +11,7 @@ interface ActivityNewsProps {
 
 interface Content {
   id: string
-  createdTime: Date
+  createdAt: Date
   title?: string
   content: string
 }
@@ -22,10 +22,10 @@ const ActivityNews = (props: ActivityNewsProps) => {
   const { title, type, contents } = props
 
   const renderHint = () => {
-    if (type === ActivityNewsType.ACTIVITY_FEED) {
+    if (type === ActivityNewsType.RECENT_NEWS) {
       return <span className={styles.hint}>No news</span>
     }
-    if (type === ActivityNewsType.RECENT_NEWS) {
+    if (type === ActivityNewsType.ACTIVITY_FEED) {
       return <span className={styles.hint}>No activities</span>
     }
   }
@@ -55,7 +55,7 @@ const ActivityNews = (props: ActivityNewsProps) => {
           : contents.map(content => {
               return (
                 <div key={content.id} className={styles.item}>
-                  <span className={styles.date}>{dateTimeFormatter(content.createdTime)}</span>
+                  <span className={styles.date}>{dateTimeFormatter(content.createdAt)}</span>
                   {content.title && <span className={styles.contentTitle}> {content.title}</span>}
                   <span className={styles.content} dangerouslySetInnerHTML={sliceContent(content.content)} />
                 </div>
