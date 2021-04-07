@@ -15,6 +15,10 @@ const AlertSchema = new Schema({
     type: String,
     required: true,
   },
+  date: {
+    type: String,
+    required: true,
+  },
   level: {
     type: String,
     enum: ['Low', 'Medium', 'High'],

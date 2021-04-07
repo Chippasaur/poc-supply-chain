@@ -6,6 +6,7 @@ module.exports = {
         source: 'sourcingjournal.com',
         content: 'Xinjiang Cotton Faces Sweeping New Western Sanctions',
         level: 'High',
+        date: '13 Jan 2021',
         createdAt: new Date('2021-01-13'),
         lastUpdateAt: new Date('2021-01-13'),
       })
@@ -15,6 +16,7 @@ module.exports = {
         source: 'Euler Hermes',
         content: 'Merces Apparel Co., LTD has had a credit issue: Credit report has changed from Amber to Red',
         level: 'Low',
+        date: '08 Jan 2021',
         createdAt: new Date('2021-01-08'),
         lastUpdateAt: new Date('2021-01-08'),
       })
@@ -24,6 +26,7 @@ module.exports = {
         source: 'D&B',
         content: 'Grand Group Standard industrial Classification (SIC) rating has dropped below requirements',
         level: 'Medium',
+        date: '01 Jan 2021',
         createdAt: new Date('2020-12-28'),
         lastUpdateAt: new Date('2020-12-28'),
       })
@@ -33,6 +36,7 @@ module.exports = {
         source: 'Bloomberg',
         content: 'Fast Sourcing Group Shipment failed quality assessment',
         level: 'Medium',
+        date: '31 Dec 2020',
         createdAt: new Date('2020-12-21'),
         lastUpdateAt: new Date('2020-12-21'),
       })

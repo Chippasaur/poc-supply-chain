@@ -5,7 +5,7 @@ import Alert from '../../models/alert'
 
 export const queryAlerts = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const alerts = await Alert.find().select({ lastUpdatedAt: 0 }).sort({ createdAt: -1 }).limit(30)
+    const alerts = await Alert.find().sort({ createdAt: -1 }).select({ lastUpdatedAt: 0, createdAt: 0 }).limit(30)
     res.json(alerts)
   } catch (error) {
     console.error(error)
