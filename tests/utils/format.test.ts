@@ -24,6 +24,10 @@ describe('test format utils', () => {
       expect(dateTimeFormatter(new Date('2020-11-18 16:00:00'))).toBe('18 Nov 2020')
     })
 
+    it('should get local date time string when time param from UTC', () => {
+      expect(dateTimeFormatter(new Date('2021-02-14T19:00:00.000Z'))).toBe('15 Feb 2021')
+    })
+
     it('should get invalid date string when date parse wrong', () => {
       expect(dateTimeFormatter(new Date('2020-10-39 16:00:00'))).toBe('Invalid date')
     })
