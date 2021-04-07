@@ -9,8 +9,8 @@ describe('<Notifications />', () => {
       type: NotificationType.INVITATION,
       createdTime: new Date('2021-2-23 16:00:00'),
     },
-    { supplierName: 'company2', type: NotificationType.SEND_MESSAGE, createdTime: new Date('2021-2-23 16:00:00') },
-    { supplierName: 'company3', type: NotificationType.SUBMIT_SURVEY, createdTime: new Date('2021-2-23 16:00:00') },
+    { supplierName: 'company2', type: NotificationType.SEND_MESSAGE, createdAt: new Date('2021-2-23 16:00:00') },
+    { supplierName: 'company3', type: NotificationType.SUBMIT_SURVEY, createdAt: new Date('2021-2-23 16:00:00') },
   ]
 
   it('render 3 notifications', () => {
