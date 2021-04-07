@@ -1,6 +1,6 @@
 import nextConnect from 'next-connect'
 import Company from '../../models/company'
-import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next'
+import { NextApiRequest, NextApiResponse } from 'next'
 import mongoMiddleware from '../../utils/mongoMiddleware'
 
 export const getCompany = async (req: NextApiRequest, res: NextApiResponse) => {

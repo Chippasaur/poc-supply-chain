@@ -1,5 +1,5 @@
 import User from '../../models/user'
-import { NextApiRequest, NextApiResponse, NextApiHandler } from 'next'
+import { NextApiRequest, NextApiResponse } from 'next'
 import mongoMiddleware from '../../utils/mongoMiddleware'
 import nextConnect from 'next-connect'
 
