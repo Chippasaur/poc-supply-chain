@@ -6,6 +6,7 @@ import map from 'lodash/map'
 import Image from 'next/image'
 import Icon from '../icon'
 import Avatar from '@material-ui/core/Avatar'
+import { useCompanyData } from '../../utils/hooks'
 
 const Navigation: Array<NavigationItem> = [
   { title: 'Dashboard', url: '/' },
@@ -21,6 +22,8 @@ const Navigation: Array<NavigationItem> = [
 const NavigationBar = () => {
   const router = useRouter()
   const currentPath = router.pathname
+
+  const { logoUrl } = useCompanyData()
   return (
     <div className={styles.navigationBar}>
       <Image src="/images/logo.png" width={60} height={60} className={styles.img} />
@@ -35,10 +38,7 @@ const NavigationBar = () => {
           <Icon type={'messages'} />
           <Icon type={'search'} />
         </div>
-        <Avatar
-          src={'httpsL//upload.wikimedia.org/wikipedia/commons/c/cc/Amazon_Alexa_App_Logo.png'}
-          className={styles.avatar}
-        />
+        <Avatar src={logoUrl} className={styles.avatar} />
       </div>
     </div>
   )

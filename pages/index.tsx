@@ -10,8 +10,8 @@ import { alerts } from '../components/alert/fakeAlerts'
 import { ActivityNewsType } from '../components/activityNews/ActivityNewsType'
 import CompanyOverview from '../components/home/companyOverview'
 import Alert from '../components/alert'
-
-const fetcher = (url: string) => fetch(url).then(res => res.json())
+import { fetcher } from '../utils/api'
+import { useCompanyData } from '../utils/hooks'
 
 const user = { name: 'Matt', company: 'Amazon, Inc' }
 const companyInfo = { avatar: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Amazon_Alexa_App_Logo.png' }
@@ -20,8 +20,8 @@ export default function Home() {
   const { data: notifications = [] } = useSWR('/api/notifications', fetcher)
   const { data: activities = [] } = useSWR('/api/activities', fetcher)
   const { data: news = [] } = useSWR('/api/news', fetcher)
-  const { data: { name, companyName } = {} } = useSWR('/api/users', fetcher)
-  const { data: { logoUrl, ...datas } = {} } = useSWR(`/api/companies?companyName=${companyName}`, fetcher)
+
+  const { name, companyName, logoUrl, ...datas } = useCompanyData()
 
   return (
     <div className={styles.container}>
