@@ -1,0 +1,1 @@
+export { activityHandler } from './activities'
