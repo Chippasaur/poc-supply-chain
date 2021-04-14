@@ -46,9 +46,9 @@ export const disconnectDb = async () => {
   }
 }
 
-export const mongoMiddleware: Middleware = async (req, res, next) => {
+export const mongoMiddleware: Middleware = async (_, __, next) => {
   if (!cached) {
     await connectDb()
   }
-  next()
+  return next()
 }

@@ -1,1 +1,1 @@
-export { MongoMiddleware } from './mongo'
+export { mongoMiddleware } from './mongo'

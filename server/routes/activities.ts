@@ -3,11 +3,10 @@ import Activity from '../../models/activity'
 import { ActivityResponse, RequestHandler } from '../types'
 
 const queryActivities: RequestHandler<any, ActivityResponse> = async (req, res, next) => {
-  const [action] = req.query.router
+  const actions = req.query.router
 
-  if (action !== 'activities') {
-    next()
-    return
+  if (actions !== undefined && actions.length !== 0 && actions[0] !== 'activities') {
+    return next()
   }
 
   try {

@@ -18,3 +18,20 @@ export type RequestHandler<ReturnType = undefined, ExtendedApiRequest = any> = N
   NextApiRequest & ExtendedApiRequest,
   NextApiResponse<ReturnType>
 >
+
+export interface ActivityResponse {
+  id: string
+  companyId: string
+  content: string
+  lastUpdatedAt: Date
+  createdAt: Date
+}
+
+export interface NewsResponse {
+  id: string
+  companyId: string
+  title: string
+  content: string
+  lastUpdatedAt: Date
+  createdAt: Date
+}
