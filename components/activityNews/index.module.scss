@@ -51,7 +51,15 @@
   font-size: 14px;
   font-weight: $font-weight;
   margin: 0;
-  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.newsContent {
+  -webkit-line-clamp: 3;
 }
 
 .contentTitle {
