@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import nextConnect from 'next-connect'
 import mongoMiddleware from '../../utils/mongoMiddleware'
-import News from '../../models/news'
+import News from '../models/news'
 import { NewsResponse, RequestHandler } from '../types'
 
 export const queryNews: RequestHandler<any, NewsResponse> = async (

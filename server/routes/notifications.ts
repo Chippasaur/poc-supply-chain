@@ -1,6 +1,6 @@
 import nextConnect from 'next-connect'
 
-import Notification from '../../models/notification'
+import Notification from '../models/notification'
 import { RequestHandler } from '../types'
 
 export const queryNotifications: RequestHandler<any, any> = async (req, res, next) => {

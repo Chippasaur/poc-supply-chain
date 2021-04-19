@@ -1,5 +1,5 @@
 import nextConnect from 'next-connect'
-import Company from '../../models/company'
+import Company from '../../server/models/company'
 import { NextApiRequest, NextApiResponse } from 'next'
 import mongoMiddleware from '../../utils/mongoMiddleware'
 

@@ -1,6 +1,6 @@
 import nextConnect from 'next-connect'
 
-import User from '../../models/user'
+import User from '../models/user'
 import { RequestHandler } from '../types'
 
 export const getUser: RequestHandler<any, any> = async (req, res, next) => {

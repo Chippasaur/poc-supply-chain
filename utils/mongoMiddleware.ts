@@ -34,6 +34,7 @@ export const connectDb = async () => {
     const dbConnection = await mongoose.connect(url, options)
     const client = dbConnection.connection.getClient()
     const db = client.db(DB_NAME)
+
     cached = { client, db, dbConnection }
   } catch (error) {
     console.error(error)

@@ -1,5 +1,5 @@
 import nextConnect from 'next-connect'
-import Alert from '../../models/alert'
+import Alert from '../models/alert'
 import { RequestHandler } from '../types'
 
 export const queryAlerts: RequestHandler<any, any> = async (req, res, next) => {
@@ -11,6 +11,7 @@ export const queryAlerts: RequestHandler<any, any> = async (req, res, next) => {
 
   try {
     const alerts = await Alert.find().sort({ createdAt: -1 }).select({ lastUpdated: 0, createdAt: 0 }).limit(30)
+    console.log(alerts)
     res.json(alerts)
   } catch (error) {
     console.error(error)

@@ -1,7 +1,13 @@
 import nextConnect from 'next-connect'
 
 import { mongoMiddleware } from '../../../server/middlewares'
-import { activitiesHandler, newsHandler, usersHandler, notificationsHandler } from '../../../server/routes'
+import {
+  activitiesHandler,
+  newsHandler,
+  usersHandler,
+  notificationsHandler,
+  alertsHandler,
+} from '../../../server/routes'
 
 export default nextConnect()
   .use(mongoMiddleware)
