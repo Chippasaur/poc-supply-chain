@@ -15,7 +15,9 @@ describe('users api', () => {
 
   test('should be able to get info of the fake user', async () => {
     const { req, res } = createMocks({ method: 'GET' })
-    const next: NextHandler = () => {}
+    const next: NextHandler = err => {
+      console.error(err)
+    }
 
     await getUser(req, res, next)
     const user = res._getJSONData()

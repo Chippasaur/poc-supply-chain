@@ -16,6 +16,7 @@ export const getUser: RequestHandler<any, any> = async (req, res, next) => {
     res.json(user)
   } catch (error) {
     console.error(error)
+    res.json([])
   }
 }
 
