@@ -28,4 +28,4 @@ const queryActivities: RequestHandler<any, ActivityResponse> = async (req, res, 
   }
 }
 
-export const activityHandler = nextConnect().get(queryActivities)
+export const activitiesHandler = nextConnect().get(queryActivities)
