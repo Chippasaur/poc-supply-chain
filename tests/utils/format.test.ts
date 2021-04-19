@@ -1,4 +1,5 @@
 import { calDiffTimeFromNow, dateTimeFormatter } from '../../utils/format'
+import moment from 'moment'
 
 describe('test format utils', () => {
   describe('test calDiffTimeFromNow', () => {
@@ -26,6 +27,11 @@ describe('test format utils', () => {
 
     it('should get local date time string when time param from UTC', () => {
       expect(dateTimeFormatter(new Date('2021-02-14T19:00:00.000Z'))).toBe('15 Feb 2021')
+    })
+
+    it('should get correct token string', () => {
+      const date = new Date('2021-02-14T19:00:00.000Z')
+      expect(moment(dateTimeFormatter(date), 'D MMM YYYY', true).isValid()).toBe(true)
     })
 
     it('should get invalid date string when date parse wrong', () => {
