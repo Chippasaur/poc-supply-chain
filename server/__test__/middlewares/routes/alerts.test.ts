@@ -1,6 +1,7 @@
 import { createMocks } from 'node-mocks-http'
-import { queryAlerts } from '../../../pages/api/alerts'
-import { connectDb, disconnectDb } from '../../../utils/mongoMiddleware'
+import { NextHandler } from 'next-connect'
+import { connectDb, disconnectDb } from '../../../middlewares/mongo'
+import { queryAlerts } from '../../../routes/alerts'
 
 describe('notification api', () => {
   beforeEach(async () => {
@@ -16,7 +17,10 @@ describe('notification api', () => {
       method: 'GET',
     })
 
-    await queryAlerts(req, res)
+    const next: NextHandler = err => {
+      console.error(err)
+    }
+    await queryAlerts(req, res, next)
 
     const notifications = res._getJSONData()
     expect(res._getStatusCode()).toBe(200)
